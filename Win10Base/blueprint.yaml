@@ -1,0 +1,33 @@
+name: Win10Base
+formatVersion: 1
+inputs: {}
+resources:
+  Cloud_Machine_1:
+    type: Cloud.Machine
+    metadata:
+      layoutPosition:
+        - 0
+        - 0
+    properties:
+      image: Win10
+      flavor: Lab-Medium
+      customizationSpec: VRAWin10 # Needs to be DHCP
+      storage:
+        constraints:
+          - tag: 'Storage:SSD'
+      networks:
+        - network: '${resource.Cloud_Network_1.id}'
+          assignment: static
+      constraints:
+        - tag: 'Host:Lab'
+  Cloud_Network_1:
+    type: Cloud.Network
+    metadata:
+      layoutPosition:
+        - 1
+        - 0
+    properties:
+      networkType: existing
+      name: LabVMNetwork
+      constraints:
+        - tag: 'NW:Lab'
