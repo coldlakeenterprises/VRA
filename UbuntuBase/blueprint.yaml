@@ -1,6 +1,5 @@
-name:UbuntuBase
-version:1
-formatVersion: 1
+name: UbuntuBase
+version: 1
 inputs: {}
 resources:
   Cloud_Machine_1:
