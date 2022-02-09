@@ -1,0 +1,50 @@
+name: CentOS7CloudConfigSaltStack
+version: 1
+formatVersion: 1
+inputs: {}
+resources:
+  Cloud_Machine_1:
+    type: Cloud.Machine
+    properties:
+      image: CentOS7
+      flavor: Lab-Medium
+      customizeGuestOS: false
+      cloudConfig: |
+        #cloud-config
+        manage_resolv_conf: true
+        resolv_conf:
+          nameservers: 192.168.0.225
+          searchdomains: coldlake.local
+          domain: coldlake.local
+        options:
+          rotate: true
+          timeout: 1
+        users:
+          - name: salt
+            sudo: ['ALL=(ALL) NOPASSWD:ALL']
+            groups: sudo
+            shell: /bin/bash
+        runcmd:
+          - hostnamectl set-hostname ${self.resourceName}
+          - PASS=saltpass
+          - USER=salt
+          - echo $USER:$PASS | /usr/sbin/chpasswd
+          - sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+          - service ssh reload
+          - curl -L https://bootstrap.saltstack.com -o install_salt.sh
+          - sudo sh install_salt.sh -A ${propgroup.SaltStackConfiguration.masterAddress}
+      storage:
+        constraints:
+          - tag: 'Storage:SSD'
+      networks:
+        - network: '${resource.Cloud_Network_1.id}'
+          assignment: dynamic
+      constraints:
+        - tag: 'Host:Lab'
+  Cloud_Network_1:
+    type: Cloud.Network
+    properties:
+      networkType: existing
+      name: LabVMNetwork
+      constraints:
+        - tag: 'NW:Lab'
