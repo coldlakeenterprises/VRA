@@ -25,7 +25,7 @@ resources:
             groups: sudo
             shell: /bin/bash
         runcmd:
-          - hostnamectl set-hostname ${self.resourceName}
+          - hostnamectl set-hostname ${self.resourceName}.coldlake.local
           - PASS=saltpass
           - USER=salt
           - echo $USER:$PASS | /usr/sbin/chpasswd
