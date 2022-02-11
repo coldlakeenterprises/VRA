@@ -1,0 +1,41 @@
+name: CentOS7CloudConfigNetwork
+version: 1
+formatVersion: 1
+inputs: {}
+resources:
+  Cloud_Machine_1:
+    type: Cloud.Machine
+    properties:
+      image: CentOS7
+      flavor: Lab-Medium
+      customizeGuestOS: false
+      cloudConfig: |
+        #cloud-config
+        ssh_pwauth: yes
+        network:
+          version: 1
+            config: 
+            - type: physical
+              name: ens192
+              subnets:
+                - type: static
+                  addresses: ${resource.Cloud_Machine_1.networks[0].address}/${resource.Cloud_Network_1.prefixLength}
+                  gateway: ${resource.Cloud_Network_1.gateway}
+                  nameservers:
+                    search: ${resource.Cloud_Network_1.dnsSearchDomains}
+                    addresses: ${resource.Cloud_Network_1.dns}
+      storage:
+        constraints:
+          - tag: 'Storage:SSD'
+      networks:
+        - network: '${resource.Cloud_Network_1.id}'
+          assignment: static
+      constraints:
+        - tag: 'Host:Lab'
+  Cloud_Network_1:
+    type: Cloud.Network
+    properties:
+      networkType: existing
+      name: LabVMNetwork
+      constraints:
+        - tag: 'NW:LabProfile'
