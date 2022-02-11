@@ -1,0 +1,140 @@
+---
+
+- hosts: localhost
+  gather_facts: false
+  tasks:
+
+#### Reworking to work with new Version of AWX Operator ####
+
+    #update Rocky Linux OS
+    - name: Upgrade all packages
+      yum:
+        name: '*'
+        state: latest
+
+    #Install required packages
+    - name: Install required packages
+      yum:
+        name: "{{ item }}"
+        state: latest
+      loop:
+         - git
+         - tar
+         - jq
+         - make
+         - vim
+         - python3-pip
+         - wget 
+         - curl 
+         - bash-completion
+
+    # disable firewalld
+    - name: Disable Firewalld Service and do not start on boot
+      systemd:
+        name: firewalld
+        state: stopped
+        enabled: false
+
+    - name: Disable SELinux
+      selinux:
+        state: disabled
+
+    #disable swap, not persistent across reboots
+    - name: Disable SWAP since kubernetes can't work with swap enabled (1/2)
+      shell: |
+        swapoff -a
+
+    # remove from /etc/fstab, permanently disable swap
+    - name: Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)
+      replace:
+        path: /etc/fstab
+        regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
+        replace: '# \1'
+
+    # Could use get_uri, but would take two steps to install, this is cleaner
+    # Not working for some reason, could possibly use k8s and try again for namespace
+    - name: install k3s
+      shell: |
+        curl -sfL https://get.k3s.io | sudo bash -
+    
+    #### verify that K3S is running
+
+    #Clone AWX Operator Repo
+    #Current Error  "Invalid kube-config file.  No configuration found"
+    - name: Clone AWX Operator Repo
+      git:
+        repo: https://github.com/ansible/awx-operator.git
+        dest: /awx-operator
+
+    #k8s complains
+    - name: Create AWX Namespace
+      shell:
+        kubectl create ns awx
+
+    - name: set current context to Namespace
+      shell:
+        kubectl config set-context --current --namespace=awx
+
+    - name: Checkout 
+      git: 
+        repo: https://github.com/ansible/awx-operator.git
+        dest: /awx-operator
+        version: 0.15.0        
+
+    - name: Compile to project awx-operator
+      make:
+        chdir: /awx-operator
+        target: deploy
+
+    - name: Pause for 3 minutes to let awx-operator come up
+      pause:
+        minutes: 3
+
+    #Could use k8s module, but does not work consistently
+    - name: Create public-static-pvc.yaml
+      copy:
+        dest: "public-static-pvc.yml"
+        content: |
+          ---
+          apiVersion: v1
+          kind: PersistentVolumeClaim
+          metadata:
+            name: public-static-data-pvc
+          spec:
+            accessModes:
+              - ReadWriteOnce
+            storageClassName: local-path
+            resources:
+              requests:
+                storage: 5Gi
+
+    #apply configuration manifest
+    - name: apply configuration manifest
+      shell: |
+        kubectl apply -f public-static-pvc.yml -n awx
+
+    #create awx deployment firewalld
+    - name: Create public-static-pvc.yaml
+      copy:
+        dest: "awx-instance-deployment.yml"
+        content: |
+          ---
+          apiVersion: awx.ansible.com/v1beta1
+          kind: AWX
+          metadata:
+            name: awx
+          spec:
+            service_type: nodeport
+            projects_persistence: true
+            projects_storage_access_mode: ReadWriteOnce
+            web_extra_volume_mounts: |
+              - name: static-data
+                mountPath: /var/lib/awx/public
+            extra_volumes: |
+              - name: static-data
+                persistentVolumeClaim:
+                  claimName: public-static-data-pvc
+
+    - name: apply configuration manifest
+      shell: |
+        kubectl apply -f awx-instance-deployment.yml -n awx
