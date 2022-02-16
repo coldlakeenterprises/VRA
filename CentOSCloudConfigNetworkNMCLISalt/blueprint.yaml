@@ -1,0 +1,44 @@
+name: CentOSCloudConfigNetworkNMCLISalt
+version: 1
+formatVersion: 1
+inputs:
+  IPAddress:
+    type: string
+    title: IPAddress
+resources:
+  Cloud_Machine_1:
+    type: Cloud.Machine
+    properties:
+      image: CentOS7
+      flavor: Lab-Medium
+      customizeGuestOS: false
+      cloudConfig: |
+        #cloud-config
+        ssh_pwauth: yes
+        runcmd:
+          - nmcli con add type ethernet con-name 'custom ens192' ifname ens192 ip4 ${input.IPAddress}/${resource.Cloud_Network_1.prefixLength} gw4 ${resource.Cloud_Network_1.gateway}
+          - nmcli con mod 'custom ens192' ipv4.dns "${join(resource.Cloud_Network_1.dns,' ')}"
+          - nmcli con mod 'custom ens192' ipv4.dns-search "${join(resource.Cloud_Network_1.dnsSearchDomains,',')}"
+          - nmcli con down 'System ens192' ; nmcli con up 'custom ens192'
+          - nmcli con del 'System ens192'
+          - touch /etc/cloud/cloud-init.disabled
+          - sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+          - service ssh reload
+          - hostnamectl set-hostname ${self.resourceName}.coldlake.local
+          - curl -L https://bootstrap.saltstack.com -o install_salt.sh
+          - sudo sh install_salt.sh -A ${propgroup.SaltStackConfiguration.masterAddress}
+      storage:
+        constraints:
+          - tag: 'Storage:SSD'
+      networks:
+        - network: '${resource.Cloud_Network_1.id}'
+          assignment: dynamic
+      constraints:
+        - tag: 'Host:Lab'
+  Cloud_Network_1:
+    type: Cloud.Network
+    properties:
+      networkType: existing
+      name: LabVMNetwork
+      constraints:
+        - tag: 'NW:LabProfile'
