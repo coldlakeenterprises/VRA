@@ -6,3 +6,4 @@ insecure = true
 project_name = "CLE-LAB"
 catalog_item_name = "CentOS7Base"
 catalog_item_version = "1"
+deployment_name = ""

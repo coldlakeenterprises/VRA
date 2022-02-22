@@ -18,7 +18,7 @@ data "vra_project" "this" {
 }
 
 resource "vra_deployment" "this" {
-  name        = var.deployment_name
+  name        = "TerraformTest"
   description = "terraform test deployment"
 
   catalog_item_id      = "CentOS7Base"
