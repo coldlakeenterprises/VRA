@@ -25,4 +25,14 @@ Write-Output ("Found VM object for $new_name")
 Write-Output $vm
 # Disconnect from vCenter Server
 Disconnect-VIServer -Server $vc_URL -Confirm:$false    
+    
 }
+
+
+
+
+
+
+
+
+

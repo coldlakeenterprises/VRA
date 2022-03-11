@@ -1,0 +1,14 @@
+---
+exportVersion: "1"
+exportId: "8a74809c7e92c428017f55c3fb630194"
+name: "Append Name in vCenter with Powershell"
+runtime: "powershell"
+entrypoint: "handler"
+inputs:
+  vcURL: "cle-vc01.coldlake.local"
+  psecret:9d5ef5c9-1008-4ce6-b9ee-c97157279c90: ""
+  psecret:a61ce437-1d94-4e8a-8962-f17e60ec7e02: ""
+timeoutSeconds: 600
+deploymentTimeoutSeconds: 900
+actionType: "SCRIPT"
+memoryInMB: 300
