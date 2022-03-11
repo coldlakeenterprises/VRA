@@ -1,7 +1,7 @@
 ---
 exportVersion: "1"
 exportId: "8a74809c7e92c428017f55c3fb630194"
-name: "Append Name in vCenter with Powershell"
+name: "Append Name in vCenter with Powershell-GIT"
 runtime: "powershell"
 entrypoint: "handler"
 inputs:
