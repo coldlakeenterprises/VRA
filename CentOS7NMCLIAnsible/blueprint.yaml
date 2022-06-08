@@ -12,7 +12,7 @@ resources:
       host: '${resource.Cloud_Machine_1.*}'
       hostName: '${input.IPAddress}'
       osType: linux
-      account: Ansible
+      account: Lab Ansible
       username: root
       privateKeyFile: /root/.ssh/id_rsa
       groups:
