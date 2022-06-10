@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dunes-script-module name="findVcVmByVcAndVmUuid" result-type="VC:VirtualMachine" api-version="6.0.0" id="452cae92-a61b-41af-8747-b846ef284076" version="1.0.0" allowed-operations="vef" category-name="com.vmware.vra.xaas">
+  <description><![CDATA[Find vCenter VM by vCenter instance ID and VM UUID.
+
+Throws error when:
+- No vCenter host configuration is found with the given ID
+- No VM is found with the given ID]]></description>
+  <param n="vCenterUuid" t="string"><![CDATA[The vCenter instance identifier]]></param>
+  <param n="vmUuid" t="string"><![CDATA[The UUID of the desired Virtual Machine]]></param>
+  <script encoded="false"><![CDATA[System.log("Trying to resolve a vCenter VM with UUID " + vmUuid + " in vCenter with UUID " + vCenterUuid);
+
+var sdkConnection = VcPlugin.findSdkConnectionForUUID(vCenterUuid);
+if (!sdkConnection){
+	throw "No vCenter host configuration found with ID " + vCenterUuid;
+}
+
+var vCenterVm = null;
+try {
+	vCenterVm = sdkConnection.searchIndex.findByUuid(null, vmUuid, true, true);
+} catch(e) {
+	System.log("Unable to find VM by instance UUID :" + vmUuid + ", for SDK connection " + sdkConnection.name + ", will fallback to search by BIOS UUID, reason : " + e);
+    try {
+    	vCenterVm = sdkConnection.searchIndex.findByUuid(null, vmUuid, true, false);
+    } catch(e) {
+    	System.log("Unable to find VM by BIOS UUID :" + vmUuid + ", for SDK connection " + sdkConnection.name + ", reason : " + e);
+    }
+}
+
+if (vCenterVm == null) {
+	try {
+    	vCenterVm = sdkConnection.searchIndex.findByUuid(null, vmUuid, true, false);
+    } catch(e) {
+    	System.log("Unable to find VM by BIOS UUID :" + vmUuid + ", for SDK connection " + sdkConnection.name + ", reason : " + e);
+    }
+}
+
+if (vCenterVm != null) {
+   System.log("Resolved vCenter VM " + vCenterVm.name);
+} else {
+   throw "Virtual Machine with UUID " + vmUuid + " is not found";
+}
+
+return vCenterVm;]]></script>
+</dunes-script-module>
