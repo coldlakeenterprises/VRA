@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dunes-script-module name="VMNameValidation" result-type="string" api-version="6.0.0" id="c9a87e9b-94b0-428b-ad9c-0a3fd8a3b5a1" version="0.0.0" category-name="com.vmware.library.vra">
+  <param n="vmName" t="string"/>
+  <script encoded="false"><![CDATA[if(!vmName)
+{
+return "";
+}
+
+var vms = VcPlugin.getAllVirtualMachines();
+for each (var vm in vms) {
+
+if (vm.name == vmName) {
+    return vmName+" is already in use";
+}
+}
+return "";]]></script>
+</dunes-script-module>
