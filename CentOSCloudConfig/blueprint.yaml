@@ -14,18 +14,12 @@ resources:
         write_files:
         - path: /var/test.txt
           content: I am building files!
-      storage:
-        constraints:
-          - tag: 'Storage:SSD'
       networks:
         - network: '${resource.Cloud_Network_1.id}'
           assignment: static
-      constraints:
-        - tag: 'Host:Lab'
   Cloud_Network_1:
     type: Cloud.Network
     properties:
       networkType: existing
       name: LabVMNetwork
-      constraints:
-        - tag: 'NW:Lab'
+

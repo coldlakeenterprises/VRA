@@ -27,18 +27,11 @@ resources:
           - hostnamectl set-hostname ${self.resourceName}.coldlake.local
           - curl -L https://bootstrap.saltstack.com -o install_salt.sh
           - sudo sh install_salt.sh -A ${propgroup.SaltStackConfiguration.masterAddress}
-      storage:
-        constraints:
-          - tag: 'Storage:SSD'
       networks:
         - network: '${resource.Cloud_Network_1.id}'
           assignment: dynamic
-      constraints:
-        - tag: 'Host:Lab'
   Cloud_Network_1:
     type: Cloud.Network
     properties:
       networkType: existing
       name: LabVMNetwork
-      constraints:
-        - tag: 'NW:LabProfile'

@@ -37,18 +37,11 @@ resources:
           - nmcli con down 'System ens192' ; nmcli con up 'custom ens192'
           - nmcli con del 'System ens192'
           - touch /etc/cloud/cloud-init.disabled
-      storage:
-        constraints:
-          - tag: 'Storage:SSD'
       networks:
         - network: '${resource.Cloud_Network_1.id}'
           assignment: dynamic
-      constraints:
-        - tag: 'Host:Lab'
   Cloud_Network_1:
     type: Cloud.Network
     properties:
       networkType: existing
       name: LabVMNetwork
-      constraints:
-        - tag: 'NW:Lab'
