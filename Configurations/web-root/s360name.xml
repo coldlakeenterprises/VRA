@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<config-element id="f235a379-020b-432e-96c0-fce2d7adad68" version="0.0.2">
+  <display-name><![CDATA[s360name]]></display-name>
+  <atts>
+    <att name="name" type="string" read-only="false">
+      <value encoded="n"><![CDATA[John]]></value>
+    </att>
+  </atts>
+</config-element>
