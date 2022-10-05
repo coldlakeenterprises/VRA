@@ -16,5 +16,3 @@ resources:
     properties:
       networkType: existing
       name: LabVMNetwork
-      constraints:
-        - tag: 'NW:DevSTD'
