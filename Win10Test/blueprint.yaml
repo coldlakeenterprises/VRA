@@ -1,0 +1,20 @@
+name: Win10test
+version: 1
+format:
+inputs: {}
+resources:
+  Cloud_Machine_1:
+    type: Cloud.Machine
+    properties:
+      image: Win10
+      flavor: Lab-Medium
+      customizationSpec: VRAWin10 # Needs to be DHCP
+      networks:
+        - network: '${resource.Cloud_Network_1.id}'
+          assignment: static
+  Cloud_Network_1:
+    type: Cloud.Network
+    properties:
+      networkType: existing
+      name: LabVMNetwork
+
