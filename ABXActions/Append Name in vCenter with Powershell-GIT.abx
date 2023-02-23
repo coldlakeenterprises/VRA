@@ -6,8 +6,7 @@ runtime: "powershell"
 entrypoint: "handler"
 inputs:
   vcURL: "cle-vc01.coldlake.local"
-  psecret:9d5ef5c9-1008-4ce6-b9ee-c97157279c90: ""
-  psecret:a61ce437-1d94-4e8a-8962-f17e60ec7e02: ""
+  psecret:72dee730-5d25-4e0a-ad77-61825d9f1e39: ""
 timeoutSeconds: 600
 deploymentTimeoutSeconds: 900
 actionType: "SCRIPT"
