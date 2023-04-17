@@ -15,4 +15,4 @@ resources:
     type: Cloud.Network
     properties:
       networkType: existing
-      name: LabVMNetwork
+      name: LabVMNetwork 
