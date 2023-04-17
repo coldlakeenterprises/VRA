@@ -1,0 +1,29 @@
+name: TerraformVCenterFolder
+version: 1
+inputs:
+  vsphere_user:
+    type: string
+  vsphere_password:
+    type: string
+  vsphere_server:
+    type: string
+  folder_name:
+    type: string
+resources:
+  terraform:
+    type: Cloud.Terraform.Configuration
+    properties:
+      variables:
+        vsphere_user: ${input.vsphere_user}
+        vsphere_password: ${secret.vcPassword}
+        vsphere_server: ${input.vsphere_server}
+        folder_name: ${input.folder_name}
+      providers:
+        - name: vsphere
+          # List of available cloud zones: CLE-VC02/Datacenter:datacenter-3
+          cloudZone: CLE-VC02/Datacenter:datacenter-3
+      terraformVersion: 0.12.29
+      configurationSource:
+        repositoryId: 53156ca3-7248-4ea1-ab4e-ddc987b9d5ec
+        commitId: d6381b918e25640cfc1c6362dce783de5fd4e8c7
+        sourceDirectory: VCenterFolder
