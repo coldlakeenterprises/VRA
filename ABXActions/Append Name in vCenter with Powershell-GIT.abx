@@ -5,9 +5,13 @@ name: "Append Name in vCenter with Powershell-GIT"
 runtime: "powershell"
 entrypoint: "handler"
 inputs:
-  vcURL: "cle-vc01.coldlake.local"
+  vcURL: "cle-vc02.coldlake.local"
+  psecret:0aadfca8-c230-4715-90d2-50010a52de3d: ""
   psecret:72dee730-5d25-4e0a-ad77-61825d9f1e39: ""
 timeoutSeconds: 600
 deploymentTimeoutSeconds: 900
 actionType: "SCRIPT"
+provider: "on-prem"
+configuration:
+  const_azure-system_managed_identity: false
 memoryInMB: 300
