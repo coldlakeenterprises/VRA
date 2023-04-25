@@ -1,9 +1,12 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<workflow xmlns="http://vmware.com/vco/workflow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://vmware.com/vco/workflow http://vmware.com/vco/workflow/Workflow-v4.xsd" root-name="item0" object-name="workflow:name=generic" id="725606cf-8819-4527-b695-9a40620368cf" version="0.0.0" api-version="6.0.0" editor-version="2.0" restartMode="1" resumeFromFailedMode="0">
-  <display-name><![CDATA[test]]></display-name>
-  <position y="50.0" x="100.0"/>
-  <workflow-item name="item0" type="end" end-mode="0">
-    <position y="50.0" x="240.0"/>
-  </workflow-item>
-  <presentation/>
-</workflow>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:workflow xmlns:ns2="http://vmware.com/vco/workflow" root-name="item0" object-name="workflow:name=generic" id="725606cf-8819-4527-b695-9a40620368cf" editor-version="2.0" version="0.0.0" api-version="6.0.0" restartMode="1" resumeFromFailedMode="0">
+    <display-name>test</display-name>
+    <position y="50.0" x="100.0"/>
+    <input/>
+    <output/>
+    <workflow-item name="item0" type="end" end-mode="0" comparator="0">
+        <in-binding/>
+        <out-binding/>
+        <position y="50.0" x="240.0"/>
+    </workflow-item>
+</ns2:workflow>
