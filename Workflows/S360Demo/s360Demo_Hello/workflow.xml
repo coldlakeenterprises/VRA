@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ns2:workflow xmlns:ns2="http://vmware.com/vco/workflow" root-name="item1" object-name="workflow:name=generic" id="5b750c08-a77c-46d7-9ad2-b85e66b73812" editor-version="2.0" version="0.0.0" api-version="6.0.0" restartMode="1" resumeFromFailedMode="0">
-    <display-name>Hello</display-name>
+    <display-name>s360Demo_Hello</display-name>
     <position y="50.0" x="100.0"/>
     <input>
         <param name="message" type="string"/>
