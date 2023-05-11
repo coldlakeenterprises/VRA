@@ -5,9 +5,9 @@ name: "Append Name in vCenter with Powershell-GIT"
 runtime: "powershell"
 entrypoint: "handler"
 inputs:
-  vcURL: "cle-vc02.coldlake.local"
-  psecret:0aadfca8-c230-4715-90d2-50010a52de3d: ""
-  psecret:72dee730-5d25-4e0a-ad77-61825d9f1e39: ""
+  vcURL: "cle-vc01.coldlake.local"
+  psecret:793b2339-e971-4b79-a30f-54c24cc10ecb: ""
+  psecret:90745d6f-bcee-46c4-b82e-4badc5fd4694: ""
 timeoutSeconds: 600
 deploymentTimeoutSeconds: 900
 actionType: "SCRIPT"
