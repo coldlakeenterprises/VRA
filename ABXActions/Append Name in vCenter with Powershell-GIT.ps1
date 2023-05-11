@@ -5,8 +5,8 @@ $old_name = $inputs.resourceNames[0]
 $new_name = $inputs.customProperties.newname
 # Action inputs required for vCenter Server connectivity 
 $vc_URL = $inputs.vcURL
-$vc_USR = $context.getSecret($inputs.vcUser)
-$vc_PWD = $context.getSecret($inputs.vcPass)
+$vc_USR = $context.getSecret($inputs.vc_USR)
+$vc_PWD = $context.getSecret($inputs.vc_PWD)
 #Ignore certificate errors
 Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:$false
 # Connect to vCenter Server using URL and User credentials
