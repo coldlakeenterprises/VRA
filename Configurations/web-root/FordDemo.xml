@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<config-element id="fb7ef0d7-c5f9-43f5-9169-32a035ca6cdc" version="0.0.0">
+  <display-name><![CDATA[FordDemo]]></display-name>
+  <atts>
+    <att name="name" type="string" read-only="false">
+      <value encoded="n"><![CDATA[Ford]]></value>
+    </att>
+  </atts>
+</config-element>
