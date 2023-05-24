@@ -8,7 +8,7 @@ resources:
     properties:
       image: CentOS7
       flavor: Lab-Medium
-      customizeGuestOS: false
+      customizeGuestOS: false 
       cloudConfig: |
         #cloud-config
         manage_resolv_conf: true
