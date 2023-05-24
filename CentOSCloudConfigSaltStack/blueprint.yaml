@@ -13,7 +13,7 @@ resources:
         #cloud-config
         manage_resolv_conf: true
         resolv_conf:
-          nameservers: 192.168.0.225
+          nameservers: 10.10.11.25
           searchdomains: coldlake.local
           domain: coldlake.local
         options:
