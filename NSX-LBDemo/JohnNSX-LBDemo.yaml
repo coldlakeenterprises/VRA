@@ -1,0 +1,48 @@
+formatVersion: 1
+inputs: {}
+resources:
+  Web-Routed:
+    type: Cloud.NSX.Network
+    metadata:
+      layoutPosition:
+        - 0
+        - 0
+    properties:
+      networkType: routed
+      constraints:
+        - tag: net:ondemand
+  Web-LB:
+    type: Cloud.NSX.LoadBalancer
+    metadata:
+      layoutPosition:
+        - 1
+        - 1
+    properties:
+      routes:
+        - protocol: HTTP
+          port: 80
+          instanceProtocol: HTTP
+          instancePort: 80
+          healthCheckConfiguration:
+            protocol: HTTP
+            port: 80
+            urlPath: /index.html
+            intervalSeconds: 60
+            timeoutSeconds: 5
+            unhealthyThreshold: 5
+            healthyThreshold: 2
+      internetFacing: false
+      instances: ${resource["Web-VM"][*].id}
+      network: ${resource["Web-Routed"].id}
+  Web-VM:
+    type: Cloud.Machine
+    metadata:
+      layoutPosition:
+        - 1
+        - 2
+    properties:
+      count: 2
+      image: cs360-CentOS7
+      flavor: cs360-small
+      networks:
+        - network: ${resource["Web-Routed"].id}

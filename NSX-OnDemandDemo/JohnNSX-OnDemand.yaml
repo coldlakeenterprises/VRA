@@ -1,0 +1,26 @@
+formatVersion: 1
+inputs: {}
+resources:
+  Cloud_Machine_1:
+    type: Cloud.Machine
+    metadata:
+      layoutPosition:
+        - 0
+        - 1
+    properties:
+      image: CentOS7-CloudInit
+      flavor: cs360-small
+      customizationSpec: lin-cust
+      networks:
+        - network: ${resource.Cloud_NSX_Network_1.id}
+          assignment: dynamic
+  Cloud_NSX_Network_1:
+    type: Cloud.NSX.Network
+    metadata:
+      layoutPosition:
+        - 1
+        - 0
+    properties:
+      networkType: routed
+      constraints:
+        - tag: net:ondemand
