@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<dunes-script-module name="CSGetVcenter" result-type="string" api-version="6.0.0" id="6f66e34d-7e60-4029-82af-ee834f582d4f" version="0.0.0" category-name="com.vmware.basic">
-  <script encoded="false"><![CDATA[var vCenters = VcPlugin.allSdkConnections;
-for each (vCenter in vCenters) {
-    System.log(vCenter.name)
-
-return (vCenter.name)
-};]]></script>
-</dunes-script-module>

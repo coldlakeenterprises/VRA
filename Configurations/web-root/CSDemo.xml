@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<config-element id="6d6761a2-0a08-4df8-a141-0763b8715d00" version="0.0.0">
-  <display-name><![CDATA[CSDemo]]></display-name>
-  <atts>
-    <att name="name" type="string" read-only="false">
-      <value encoded="n"><![CDATA[CrowdStrike]]></value>
-    </att>
-  </atts>
-</config-element>

@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<dunes-script-module name="s360FordVcenter" result-type="string" api-version="6.0.0" id="d9f8f6e4-b8b7-462d-8ebb-d8ae1727e646" version="0.0.0" category-name="com.vmware.basic">
-  <script encoded="false"><![CDATA[var vCenters = VcPlugin.allSdkConnections;
-
-};
-
-]]></script>
-</dunes-script-module>
