@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<config-element id="125f1ef0-644c-4834-825a-06e3d0314bed" version="0.0.0">
+  <display-name><![CDATA[DTVDEMO]]></display-name>
+  <atts>
+    <att name="Name" type="string" read-only="false">
+      <value encoded="n"><![CDATA[Bill]]></value>
+    </att>
+  </atts>
+</config-element>

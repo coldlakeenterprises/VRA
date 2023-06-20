@@ -3,6 +3,7 @@
   <script encoded="false"><![CDATA[var vCenters=VcPlugin.allSdkConnections;
 for each (vCenter in vCenters){
   System.log(vCenter.name)
+  return(vCenter.name)
   };
-  return(vCenter.name)]]></script>
+]]></script>
 </dunes-script-module>
