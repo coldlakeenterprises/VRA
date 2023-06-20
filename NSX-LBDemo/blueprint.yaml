@@ -1,4 +1,6 @@
 formatVersion: 1
+name: S360NSXLBDemo
+version: 1
 inputs: {}
 resources:
   Web-Routed:
