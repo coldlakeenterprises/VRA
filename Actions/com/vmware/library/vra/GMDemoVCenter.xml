@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dunes-script-module name="GMDemoVCenter" result-type="string" api-version="6.0.0" id="d388b122-82a9-4245-8bb6-fa7436426164" version="0.0.0" category-name="com.vmware.library.vra">
+  <script encoded="false"><![CDATA[var vCenters=VcPlugin.allSdkConnections;
+for each (vCenter in vCenters){
+    System.log(vCenter.name)
+    return(vCenter.name)
+};]]></script>
+</dunes-script-module>
