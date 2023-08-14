@@ -6,3 +6,5 @@ for each (vCenter in vCenters){
     return(vCenter.name)
 };]]></script>
 </dunes-script-module>
+
+#s360demo
