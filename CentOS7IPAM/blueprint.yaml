@@ -1,0 +1,20 @@
+name: CentOS7IPAM
+version: 1
+formatVersion: 1
+inputs: {}
+resources:
+  Cloud_Network_1:
+    type: Cloud.Network
+    properties:
+      networkType: existing
+      constraints:
+        - tag: NWP:LabProd
+  Cloud_Machine_1:
+    type: Cloud.Machine
+    properties:
+      image: CentOS7
+      flavor: Lab-Small
+      Infoblox.IPAM.Network.dnsSuffix: coldlake.local
+      networks:
+        - network: ${resource.Cloud_Network_1.id}
+          assignment: static
