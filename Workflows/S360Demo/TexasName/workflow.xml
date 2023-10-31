@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:workflow xmlns:ns2="http://vmware.com/vco/workflow" root-name="item1" object-name="workflow:name=generic" id="f9809897-5c97-47ce-99d9-9f0f6002024b" editor-version="2.0" version="0.0.0" api-version="6.0.0" restartMode="1" resumeFromFailedMode="0">
+    <display-name>TexasName</display-name>
+    <position y="50.0" x="100.0"/>
+    <input>
+        <param name="message" type="string"/>
+    </input>
+    <output/>
+    <attrib name="name" type="string" conf-id="a6664ae3-0859-4c35-88e1-4eb43ff48ff8" conf-key="name"/>
+    <attrib name="city" type="string" conf-id="a6664ae3-0859-4c35-88e1-4eb43ff48ff8" conf-key="location"/>
+    <attrib name="username" type="string" conf-id="61aaf71d-df10-4441-857b-be3bb207410e" conf-key="user"/>
+    <attrib name="password" type="EncryptedString" conf-id="61aaf71d-df10-4441-857b-be3bb207410e" conf-key="password"/>
+    <workflow-item name="item0" type="end" end-mode="0" comparator="0">
+        <in-binding/>
+        <out-binding/>
+        <position y="50.0" x="300.0"/>
+    </workflow-item>
+    <workflow-item name="item1" out-name="item0" type="task" comparator="0">
+        <display-name>Scriptable task</display-name>
+        <script encoded="false">System.log(message + " " + password)</script>
+        <in-binding>
+            <bind name="message" type="string" export-name="message"/>
+            <bind name="password" type="EncryptedString" export-name="password"/>
+        </in-binding>
+        <out-binding/>
+        <description>Simple task with custom script capability.</description>
+        <position y="70.0" x="160.0"/>
+    </workflow-item>
+</ns2:workflow>

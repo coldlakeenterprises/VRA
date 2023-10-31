@@ -3,7 +3,7 @@
     <display-name>S360RenameVM</display-name>
     <description>Renames an existing virtual machine on vCenter Server or ESX host and not on the datastore.</description>
     <ref-types>(VC:VirtualMachine)</ref-types>
-    <position y="60.0" x="160.0"/>
+    <position y="70.0" x="160.0"/>
     <input>
         <param name="inputProperties" type="Properties"/>
     </input>

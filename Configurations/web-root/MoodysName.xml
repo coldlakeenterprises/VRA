@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<config-element id="1da19aae-68d2-47c9-a592-264200fb0738" version="0.0.0">
-  <display-name><![CDATA[MoodysName]]></display-name>
-  <atts>
-    <att name="name" type="string" read-only="false">
-      <value encoded="n"><![CDATA[Moodys]]></value>
-    </att>
-  </atts>
-</config-element>
