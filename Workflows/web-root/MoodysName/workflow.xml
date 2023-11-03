@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:workflow xmlns:ns2="http://vmware.com/vco/workflow" root-name="item1" object-name="workflow:name=generic" id="3feff86d-98d6-4493-b232-e9a01baa1717" editor-version="2.0" version="0.0.0" api-version="6.0.0" restartMode="1" resumeFromFailedMode="0">
+    <display-name>MoodysName</display-name>
+    <position y="50.0" x="100.0"/>
+    <input>
+        <param name="message" type="string"/>
+    </input>
+    <output/>
+    <attrib name="name" type="string" conf-id="1da19aae-68d2-47c9-a592-264200fb0738" conf-key="name"/>
+    <workflow-item name="item0" type="end" end-mode="0" comparator="0">
+        <in-binding/>
+        <out-binding/>
+        <position y="50.0" x="320.0"/>
+    </workflow-item>
+    <workflow-item name="item1" out-name="item0" type="task" comparator="0">
+        <display-name>Hello Moodys</display-name>
+        <script encoded="false">System.log(message + " " + name)</script>
+        <in-binding>
+            <bind name="message" type="string" export-name="message"/>
+            <bind name="name" type="string" export-name="name"/>
+        </in-binding>
+        <out-binding/>
+        <description>Simple task with custom script capability.</description>
+        <position y="60.0" x="160.0"/>
+    </workflow-item>
+</ns2:workflow>

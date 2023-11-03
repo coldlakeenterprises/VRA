@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<config-element id="b686b203-1aa2-4ec3-bfde-0abf57ff92cf" version="0.0.0">
+  <display-name><![CDATA[GMDemo]]></display-name>
+  <atts>
+    <att name="name" type="string" read-only="false">
+      <value encoded="n"><![CDATA[Mark]]></value>
+    </att>
+  </atts>
+</config-element>

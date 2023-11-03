@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dunes-script-module name="MoodysVCenter" result-type="string" api-version="6.0.0" id="cd24e69b-e0d6-48bb-998a-090e23511685" version="0.0.0" category-name="com.vmware.library.vra">
+  <script encoded="false"><![CDATA[var vCenters = VcPlugin.allSdkConnections;
+for each (vCenter in vCenters) {
+    System.log(vCenter.name)
+    return (vCenter.name)
+};]]></script>
+</dunes-script-module>
