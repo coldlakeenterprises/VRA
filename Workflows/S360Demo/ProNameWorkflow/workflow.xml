@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ns2:workflow xmlns:ns2="http://vmware.com/vco/workflow" root-name="item1" object-name="workflow:name=generic" id="fa108244-956b-445c-bc72-d462883e9c34" editor-version="2.0" version="0.0.0" api-version="6.0.0" restartMode="1" resumeFromFailedMode="0">
     <display-name>ProNameWorkflow</display-name>
-    <description>test workflow</description>
     <position y="50.0" x="100.0"/>
     <input>
         <param name="message" type="string"/>
