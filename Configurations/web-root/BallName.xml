@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<config-element id="2a5b57aa-e7fa-4a5f-bca0-9aded5ca40b7" version="0.0.0">
+  <display-name><![CDATA[BallName]]></display-name>
+  <atts>
+    <att name="name" type="string" read-only="false">
+      <value encoded="n"><![CDATA[BallAerospace]]></value>
+    </att>
+  </atts>
+</config-element>
