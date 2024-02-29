@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ns2:workflow xmlns:ns2="http://vmware.com/vco/workflow" root-name="item1" object-name="workflow:name=generic" id="fa108244-956b-445c-bc72-d462883e9c34" editor-version="2.0" version="0.0.0" api-version="6.0.0" restartMode="1" resumeFromFailedMode="0">
-    <display-name>ProNameWorkflow</display-name>
+<ns2:workflow xmlns:ns2="http://vmware.com/vco/workflow" root-name="item1" object-name="workflow:name=generic" id="11a36b1d-db78-4f70-a203-801a85af706c" editor-version="2.0" version="0.0.0" api-version="6.0.0" restartMode="1" resumeFromFailedMode="0">
+    <display-name>Ball_Hello</display-name>
     <position y="50.0" x="100.0"/>
     <input>
         <param name="message" type="string"/>
     </input>
     <output/>
-    <attrib name="name" type="string" conf-id="67ed65f1-c966-4580-8f26-45ac056c856d" conf-key="name"/>
+    <attrib name="name" type="string" conf-id="2a5b57aa-e7fa-4a5f-bca0-9aded5ca40b7" conf-key="name"/>
     <workflow-item name="item0" type="end" end-mode="0" comparator="0">
         <in-binding/>
         <out-binding/>
-        <position y="50.0" x="340.0"/>
+        <position y="50.0" x="390.0"/>
     </workflow-item>
     <workflow-item name="item1" out-name="item0" type="task" comparator="0">
-        <display-name>Hello </display-name>
+        <display-name>Scriptable task</display-name>
         <script encoded="false">System.log(message + " " + name)</script>
         <in-binding>
-            <bind name="message" type="string" export-name="message"/>
             <bind name="name" type="string" export-name="name"/>
+            <bind name="message" type="string" export-name="message"/>
         </in-binding>
         <out-binding/>
         <description>Simple task with custom script capability.</description>
-        <position y="70.0" x="160.0"/>
+        <position y="60.0" x="260.0"/>
     </workflow-item>
 </ns2:workflow>
