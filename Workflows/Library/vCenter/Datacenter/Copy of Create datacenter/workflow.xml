@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:workflow xmlns:ns2="http://vmware.com/vco/workflow" root-name="item0" object-name="Workflow:name=generic" id="ebe051ef-c073-4c28-9608-e69ed9a2032a" editor-version="2.0" version="0.2.0" api-version="6.0.0" allowed-operations="vef" restartMode="1" resumeFromFailedMode="0">
+    <display-name>Copy of Create datacenter</display-name>
+    <description>Creates a new datacenter in a datacenter folder.</description>
+    <position y="30.0" x="180.0"/>
+    <input>
+        <param name="folder" type="VC:DatacenterFolder">
+            <description>Parent datacenter folder</description>
+        </param>
+        <param name="name" type="string">
+            <description>Name of new datacenter</description>
+        </param>
+    </input>
+    <output>
+        <param name="newDatacenter" type="VC:Datacenter">
+            <description>The newly created datacenter</description>
+        </param>
+    </output>
+    <attrib name="name01" type="string" conf-id="268eca2d-d167-48bc-88a1-a12337c0ee9b" conf-key="jessica"/>
+    <workflow-item name="item0" out-name="item1" type="task" comparator="0">
+        <display-name>Create datacenter</display-name>
+        <script encoded="false">newDatacenter = folder.createDatacenter(name);</script>
+        <in-binding>
+            <bind name="folder" type="VC:DatacenterFolder" export-name="folder"/>
+            <bind name="name" type="string" export-name="name01"/>
+        </in-binding>
+        <out-binding>
+            <bind name="newDatacenter" type="VC:Datacenter" export-name="newDatacenter"/>
+        </out-binding>
+        <position y="80.0" x="140.0"/>
+    </workflow-item>
+    <workflow-item name="item1" type="end" end-mode="0" comparator="0">
+        <in-binding/>
+        <out-binding/>
+        <position y="110.0" x="180.0"/>
+    </workflow-item>
+</ns2:workflow>

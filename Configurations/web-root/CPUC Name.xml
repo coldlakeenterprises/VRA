@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<config-element id="268eca2d-d167-48bc-88a1-a12337c0ee9b" version="0.0.0">
+  <display-name><![CDATA[CPUC Name]]></display-name>
+  <atts>
+    <att name="vince" type="string" read-only="false">
+      <value encoded="n"><![CDATA[Vince]]></value>
+    </att>
+    <att name="jessica" type="string" read-only="false">
+      <value encoded="n"><![CDATA[Jessica]]></value>
+    </att>
+  </atts>
+</config-element>

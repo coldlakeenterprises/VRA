@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<config-element id="67ed65f1-c966-4580-8f26-45ac056c856d" version="0.0.0">
-  <display-name><![CDATA[Pro-Name]]></display-name>
-  <atts>
-    <att name="name" type="string" read-only="false">
-      <value encoded="n"><![CDATA[Progressive]]></value>
-    </att>
-  </atts>
-</config-element>
