@@ -1,12 +1,12 @@
-name: UbuntuBase
+S9name: UbuntuBase
 version: 1
 inputs: {}
 resources:
   Cloud_Machine_1:
     type: Cloud.Machine
     properties:
-      image: Ubuntu20Server
-      flavor: Lab-Medium
+      image: CentOS9
+      flavor: Small
       networks:
         - network: '${resource.Cloud_Network_1.id}'
           assignment: static
