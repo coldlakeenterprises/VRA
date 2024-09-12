@@ -1,4 +1,4 @@
-S9name: CentOS9DemoBase
+name: CentOS9DemoBase
 version: 1
 inputs: {}
 resources:
