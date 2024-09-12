@@ -1,3 +1,5 @@
+name: NSX-OnDemandDemo
+version: 1
 formatVersion: 1
 inputs: {}
 resources:
