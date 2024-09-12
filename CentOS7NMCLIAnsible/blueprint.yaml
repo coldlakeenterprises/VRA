@@ -12,7 +12,7 @@ resources:
       host: '${resource.Cloud_Machine_1.*}'
       hostName: '${input.IPAddress}'
       osType: linux
-      account: Lab Ansible
+      account: Ansible
       username: root
       privateKeyFile: /root/.ssh/id_rsa
       groups:
@@ -23,8 +23,8 @@ resources:
   Cloud_Machine_1:
     type: Cloud.Machine
     properties:
-      image: CentOS7
-      flavor: Lab-Medium
+      image: CentOS9
+      flavor: Small
       customizeGuestOS: false
       cloudConfig: |
         #cloud-config
@@ -44,4 +44,4 @@ resources:
     type: Cloud.Network
     properties:
       networkType: existing
-      name: LabVMNetwork
+
