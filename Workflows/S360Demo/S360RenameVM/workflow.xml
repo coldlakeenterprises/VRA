@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:workflow xmlns:ns2="http://vmware.com/vco/workflow" root-name="item0" object-name="Workflow:name=generic" id="6fd6a6b4-2093-460c-a3eb-f7c5c6357e05" editor-version="2.0" version="0.2.0" api-version="6.0.0" allowed-operations="vef" restartMode="1" resumeFromFailedMode="0">
+    <display-name>S360RenameVM</display-name>
+    <description>Renames an existing virtual machine on vCenter Server or ESX host and not on the datastore.</description>
+    <ref-types>(VC:VirtualMachine)</ref-types>
+    <position y="90.0" x="160.0"/>
+    <input>
+        <param name="inputProperties" type="Properties"/>
+    </input>
+    <output>
+        <param name="resourceNames" type="Array/string"/>
+    </output>
+    <attrib name="task" type="VC:Task">
+        <value encoded="n"/>
+        <description>Task to await</description>
+    </attrib>
+    <attrib name="progress" type="boolean">
+        <value encoded="n">false</value>
+        <description>Log progress while waiting for the task to complete</description>
+    </attrib>
+    <attrib name="pollRate" type="number">
+        <value encoded="n">0.0</value>
+        <description>Polling rate for the task state, in seconds.</description>
+    </attrib>
+    <workflow-item name="item0" out-name="item2" type="task" comparator="0">
+        <display-name>Rename VM</display-name>
+        <script encoded="false">//Get original resource name
+var oldName = inputProperties.resourceNames[0];
+//Retrieve required properties
+var name = inputProperties.customProperties.newname;
+
+//Construct new name
+var newName = name;
+
+//Return new name as "resourceNames"
+resourceNames = [];
+resourceNames[0] = newName;
+System.log("Setting machine name from '" + oldName + "' to '" + newName + "'");</script>
+        <in-binding>
+            <bind name="inputProperties" type="Properties" export-name="inputProperties"/>
+        </in-binding>
+        <out-binding>
+            <bind name="resourceNames" type="Array/string" export-name="resourceNames"/>
+        </out-binding>
+        <position y="90.0" x="220.0"/>
+    </workflow-item>
+    <workflow-item name="item2" type="end" end-mode="0" comparator="0">
+        <in-binding/>
+        <out-binding/>
+        <position y="80.0" x="360.0"/>
+    </workflow-item>
+</ns2:workflow>

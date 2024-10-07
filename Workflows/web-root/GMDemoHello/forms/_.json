@@ -1,1 +1,0 @@
-{"schema":{"message":{"id":"message","type":{"dataType":"string"},"label":"message","constraints":{"required":false}}},"layout":{"pages":[{"id":"page_7mhow8l6","title":"General","sections":[{"id":"section_pkeddly4","fields":[{"id":"message","display":"textField","signpostPosition":"right-middle","state":{"visible":true,"read-only":false}}]}]}]},"itemId":""}

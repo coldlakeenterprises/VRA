@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<config-element id="6120e0e4-564f-4af0-b734-eda2cb374c54" version="0.0.0">
+  <display-name><![CDATA[RWJname01]]></display-name>
+  <atts>
+    <att name="name" type="string" read-only="false">
+      <value encoded="n"><![CDATA[RWJ]]></value>
+      <description><![CDATA[`]]></description>
+    </att>
+  </atts>
+</config-element>

@@ -1,1 +1,0 @@
-{"schema":{"message":{"id":"message","type":{"dataType":"string"},"label":"message","constraints":{"required":false}}},"layout":{"pages":[{"id":"page_ehritn4b","title":"General","sections":[{"id":"section_qysn3dzq","fields":[{"id":"message","display":"textField","signpostPosition":"right-middle","state":{"visible":true,"read-only":false}}]}]}]},"itemId":""}

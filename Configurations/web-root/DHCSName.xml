@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<config-element id="54203614-2fa4-4651-84cb-ae94af03455c" version="0.0.0">
-  <display-name><![CDATA[DHCSName]]></display-name>
-  <atts>
-    <att name="name" type="string" read-only="false">
-      <value encoded="n"><![CDATA[DHCS]]></value>
-    </att>
-  </atts>
-</config-element>

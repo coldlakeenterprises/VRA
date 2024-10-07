@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:workflow xmlns:ns2="http://vmware.com/vco/workflow" root-name="item2" object-name="workflow:name=generic" id="38323415-dcc1-44d5-aad2-c2a52a170f03" editor-version="2.0" version="0.0.0" api-version="6.0.0" restartMode="1" resumeFromFailedMode="0">
+    <display-name>RWJHello</display-name>
+    <position y="50.0" x="100.0"/>
+    <input>
+        <param name="message" type="string"/>
+    </input>
+    <output/>
+    <attrib name="user" type="string" conf-id="6120e0e4-564f-4af0-b734-eda2cb374c54" conf-key="name"/>
+    <attrib name="actionResult" type="string">
+        <value encoded="n"/>
+    </attrib>
+    <workflow-item name="item0" type="end" end-mode="0" comparator="0">
+        <in-binding/>
+        <out-binding/>
+        <position y="50.0" x="480.0"/>
+    </workflow-item>
+    <workflow-item name="item1" out-name="item0" type="task" comparator="0">
+        <display-name>Scriptable task</display-name>
+        <script encoded="false">System.log(message + " " + user + " you are on " + actionResult)</script>
+        <in-binding>
+            <bind name="message" type="string" export-name="message"/>
+            <bind name="user" type="string" export-name="user"/>
+            <bind name="actionResult" type="string" export-name="actionResult"/>
+        </in-binding>
+        <out-binding/>
+        <description>Simple task with custom script capability.</description>
+        <position y="60.0" x="300.0"/>
+    </workflow-item>
+    <workflow-item name="item2" out-name="item1" type="task" script-module="com.vmware.basic/RWJVsphere" comparator="0">
+        <display-name>RWJVsphere</display-name>
+        <script encoded="false">//Auto generated script, cannot be modified !
+actionResult = System.getModule("com.vmware.basic").RWJVsphere();
+</script>
+        <in-binding/>
+        <out-binding>
+            <bind name="actionResult" type="string" export-name="actionResult"/>
+        </out-binding>
+        <description>Add a note to the workflow schema.</description>
+        <position y="60.0" x="180.0"/>
+    </workflow-item>
+</ns2:workflow>

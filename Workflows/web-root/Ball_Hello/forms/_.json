@@ -1,1 +1,0 @@
-{"schema":{"message":{"id":"message","type":{"dataType":"string"},"label":"message","constraints":{"required":false}}},"layout":{"pages":[{"id":"page_m9smwgtg","title":"General","sections":[{"id":"section_i0j3fsrz","fields":[{"id":"message","display":"textField","signpostPosition":"right-middle","state":{"visible":true,"read-only":false}}]}]}]},"itemId":""}

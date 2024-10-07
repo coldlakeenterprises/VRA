@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<dunes-script-module name="DHCSVcenter" result-type="string" api-version="6.0.0" id="5b45d0f3-0506-4af4-a28d-3032431f45e3" version="0.0.0" category-name="com.vmware.basic">
-  <script encoded="false"><![CDATA[var vCenters=VcPlugin.allSdkConnections;
-for each (vCenter in vCenters){
-    System.log(vCenter.name)
-    return(vCenter.name)
-}]]></script>
-</dunes-script-module>

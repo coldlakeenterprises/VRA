@@ -1,1 +1,0 @@
-{"schema":{"message":{"id":"message","type":{"dataType":"string"},"label":"message","constraints":{"required":false}}},"layout":{"pages":[{"id":"page_byuseb29","title":"General","sections":[{"id":"section_e1ao68xs","fields":[{"id":"message","display":"textField","signpostPosition":"right-middle","state":{"visible":true,"read-only":false}}]}]}]},"itemId":""}

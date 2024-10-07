@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<dunes-script-module name="findVcVmByVcAndVmUuid" result-type="VC:VirtualMachine" api-version="6.0.0" id="452cae92-a61b-41af-8747-b846ef284076" version="1.0.0" allowed-operations="vef" category-name="com.vmware.vra.xaas">
+<dunes-script-module name="findVcVmByVcAndVmUuid" result-type="VC:VirtualMachine" api-version="6.0.0" id="452cae92-a61b-41af-8747-b846ef284076" version="1.0.0" allowed-operations="vf" category-name="com.vmware.vra.xaas">
   <description><![CDATA[Find vCenter VM by vCenter instance ID and VM UUID.
 
 Throws error when:
