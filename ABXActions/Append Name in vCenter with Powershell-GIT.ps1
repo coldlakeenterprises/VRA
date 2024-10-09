@@ -4,7 +4,7 @@ $old_name = $inputs.resourceNames[0]
 # Custom properties from design canvas 
 $new_name = $inputs.customProperties.newname
 # Action inputs required for vCenter Server connectivity 
-$vc_URL = $inputs.vcURL
+$vc_URL = $inputs.vc_URL
 $vc_USR = $context.getSecret($inputs.vc_USR)
 $vc_PWD = $context.getSecret($inputs.vc_PWD)
 #Ignore certificate errors
