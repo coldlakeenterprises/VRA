@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dunes-script-module name="PiedmontVCenter" result-type="string" api-version="6.0.0" id="f779047c-e8de-45e6-8731-a7d22abb3fd7" version="0.0.0" category-name="com.vmware.basic">
+  <script encoded="false"><![CDATA[var vCenters=VcPlugin.allSdkConnections;
+for each (vCenter in vCenters){
+    System.log(vCenter.name)
+    return(vCenter.name)
+};
+]]></script>
+</dunes-script-module>
